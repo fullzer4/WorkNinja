@@ -1,6 +1,5 @@
 import concurrent.futures
 import queue
-import time
 
 class WorkQueue(queue.Queue):
     def __init__(self):
