@@ -1,4 +1,4 @@
-# WorkNinja
+# 🥷🐍 WorkNinja
 
 WorkNinja is a parallel processing framework for Python that leverages the work stealing technique to dynamically balance workload. Maximize the efficiency and performance of your applications with ease!
 
