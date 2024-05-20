@@ -23,8 +23,7 @@ jobs:
         pip install build setuptools wheel twine Cython
     - name: Build package
       run: python setup.py sdist bdist_wheel
-    - name: Publish package to PyPI
-      env:
-        TWINE_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-      run: |
-        python -m twine upload dist/* --verbose
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
