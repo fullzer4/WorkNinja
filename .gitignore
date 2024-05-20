@@ -1,4 +1,6 @@
 venv
 build
+dist
+workninja.egg-info/
 *.c
 *.so
