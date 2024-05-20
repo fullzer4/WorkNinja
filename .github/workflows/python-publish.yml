@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +22,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install build setuptools wheel twine Cython
     - name: Build package
-      run: python setup.py sdist bdist_wheel                                 
+      run: python setup.py sdist bdist_wheel
     - name: Publish package to PyPI
       env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        TWINE_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        python -m twine upload dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD
+        python -m twine upload dist/* --verbose
