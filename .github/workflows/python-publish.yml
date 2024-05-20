@@ -24,8 +24,9 @@ jobs:
         pip install build setuptools wheel twine Cython
     - name: Build package
       run: python setup.py sdist bdist_wheel                                 
-    - name: Publish package
+    - name: Publish package to PyPI
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: twine upload dist/*
+      run: |
+        python -m twine upload dist/* -u $TWINE_USERNAME -p $TWINE_PASSWORD
